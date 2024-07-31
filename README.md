@@ -159,7 +159,7 @@
                 <div class="script-buttons">
                     <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script&quot;))()')">COPY</button>
                     <button onclick="shareScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script&quot;))()')">SHARE</button>
-                    <button onclick="showReportBox('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script&quot;))()')">REPORT</button>
+                    <button onclick="showReportBox('bro what?')">REPORT</button>
                     <button onclick="goToGame('')">Go to Game</button>
                 </div>
             </div>
