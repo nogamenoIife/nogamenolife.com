@@ -171,7 +171,7 @@
                 <div class="script-buttons">
                     <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://example.com/universal-script&quot;))()')">COPY</button>
                     <button onclick="shareScript('loadstring(game:HttpGet(&quot;https://example.com/universal-script&quot;))()')">SHARE</button>
-                    <button onclick="showReportBox('loadstring(game:HttpGet(&quot;https://example.com/universal-script&quot;))()')">REPORT</button>
+                    <button onclick="showReportBox('bro what?')">REPORT</button>
                     <button onclick="goToGame('universal')">Go to Game</button>
                 </div>
             </div>
