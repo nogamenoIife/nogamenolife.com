@@ -171,10 +171,11 @@
                 <div class="script-buttons">
                     <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://example.com/universal-script&quot;))()')">COPY</button>
                     <button onclick="shareScript('loadstring(game:HttpGet(&quot;https://example.com/universal-script&quot;))()')">SHARE</button>
-                    <button onclick="showReportBox('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script&quot;))()')">REPORT</button>
+                    <button onclick="showReportBox('loadstring(game:HttpGet(&quot;https://example.com/universal-script&quot;))()')">REPORT</button>
                     <button onclick="goToGame('universal')">Go to Game</button>
                 </div>
             </div>
+        </div>
         <div class="report-box" id="report-box">
             <h2>Report an Issue</h2>
             <textarea id="report-text" placeholder="Describe the issue..."></textarea>
@@ -221,18 +222,8 @@
         function showReportBox(script) {
             const reportBox = document.getElementById('report-box');
             const reportText = document.getElementById('report-text');
-            if (reportBox.style.display === 'none' || reportBox.style.display === '') {
-                reportBox.style.display = 'block';
-                reportText.value = script;
-            } else {
-                reportBox.style.display = 'none';
-            }
-        }
-
-        function submitReport() {
-            const reportText = document.getElementById('report-text').value;
-            // Send the reportText to your server or handle it as needed
-            alert('Report submitted: ' + reportText);
+            reportBox.style.display = 'block';
+            reportText.value = script;
         }
 
         function goToGame(scriptType) {
