@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <style>
         body, html {
             margin: 0;
@@ -108,6 +108,32 @@
         .script-section {
             display: none;
         }
+        .report-box {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #000;
+        }
+        .report-box textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ff69b4;
+            border-radius: 10px;
+            resize: none;
+            outline: none;
+        }
+        .report-box button {
+            background-color: #ff69b4;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -132,9 +158,9 @@
                 <pre>loadstring(game:HttpGet("https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script"))()</pre>
                 <div class="script-buttons">
                     <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script&quot;))()')">COPY</button>
-                    <button>SHARE</button>
-                    <button>REPORT</button>
-                    <button>Go to Game</button>
+                    <button onclick="shareScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script&quot;))()')">SHARE</button>
+                    <button onclick="showReportBox('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script&quot;))()')">REPORT</button>
+                    <button onclick="goToGame('')">Go to Game</button>
                 </div>
             </div>
         </div>
@@ -144,11 +170,16 @@
                 <pre>loadstring(game:HttpGet("https://example.com/universal-script"))()</pre>
                 <div class="script-buttons">
                     <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://example.com/universal-script&quot;))()')">COPY</button>
-                    <button>SHARE</button>
-                    <button>REPORT</button>
-                    <button>Go to Game</button>
+                    <button onclick="shareScript('loadstring(game:HttpGet(&quot;https://example.com/universal-script&quot;))()')">SHARE</button>
+                    <button onclick="showReportBox('loadstring(game:HttpGet(&quot;https://example.com/universal-script&quot;))()')">REPORT</button>
+                    <button onclick="goToGame('universal')">Go to Game</button>
                 </div>
             </div>
+        </div>
+        <div class="report-box" id="report-box">
+            <h2>Report an Issue</h2>
+            <textarea id="report-text" placeholder="Describe the issue..."></textarea>
+            <button onclick="submitReport()">Submit Report</button>
         </div>
         <!-- Add more sections and scripts as needed -->
     </div>
@@ -174,7 +205,43 @@
             alert(`Sorting scripts by ${order}`);
         }
 
-        // Show the "Everything" section by default
+        function shareScript(script) {
+            // Implement sharing functionality
+            const shareData = {
+                title: 'Script',
+                text: 'Check out this script:',
+                url: window.location.href
+            };
+            navigator.share(shareData).then(() => {
+                console.log('Script shared successfully');
+            }).catch(err => {
+                console.error('Error sharing script:', err);
+            });
+        }
+
+        function showReportBox(script) {
+            const reportBox = document.getElementById('report-box');
+            const reportText = document.getElementById('report-text');
+            reportBox.style.display = 'block';
+            reportText.value = script;
+        }
+
+        function submitReport() {
+            const reportText = document.getElementById('report-text').value;
+            // Send the reportText to your server or handle it as needed
+            alert('Report submitted: ' + reportText);
+        }
+
+        function goToGame(scriptType) {
+            if (scriptType === 'universal') {
+                alert('This script can be used in any games.');
+            } else {
+                alert('Navigating to the specific game...');
+            }
+            // Add logic to navigate to the game
+        }
+
+        // Show all scripts by default
         showSection('all');
     </script>
 </body>
