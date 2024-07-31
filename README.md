@@ -159,7 +159,7 @@
                 <div class="script-buttons">
                     <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script&quot;))()')">COPY</button>
                     <button onclick="shareScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script&quot;))()')">SHARE</button>
-                    <button onclick="toggleReportBox()">REPORT</button>
+                    <button onclick="showReportBox('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script&quot;))()')">REPORT</button>
                     <button onclick="goToGame('')">Go to Game</button>
                 </div>
             </div>
@@ -171,7 +171,7 @@
                 <div class="script-buttons">
                     <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://example.com/universal-script&quot;))()')">COPY</button>
                     <button onclick="shareScript('loadstring(game:HttpGet(&quot;https://example.com/universal-script&quot;))()')">SHARE</button>
-                    <button onclick="toggleReportBox()">REPORT</button>
+                    <button onclick="showReportBox('loadstring(game:HttpGet(&quot;https://example.com/universal-script&quot;))()')">REPORT</button>
                     <button onclick="goToGame('universal')">Go to Game</button>
                 </div>
             </div>
@@ -181,6 +181,7 @@
             <textarea id="report-text" placeholder="Describe the issue..."></textarea>
             <button onclick="submitReport()">Submit Report</button>
         </div>
+        <!-- Add more sections and scripts as needed -->
     </div>
     <script>
         function showSection(sectionId) {
@@ -218,9 +219,11 @@
             });
         }
 
-        function toggleReportBox() {
+        function showReportBox(script) {
             const reportBox = document.getElementById('report-box');
-            reportBox.style.display = reportBox.style.display === 'none' || reportBox.style.display === '' ? 'block' : 'none';
+            const reportText = document.getElementById('report-text');
+            reportBox.style.display = 'block';
+            reportText.value = script;
         }
 
         function submitReport() {
@@ -239,58 +242,6 @@
         }
 
         // Show all scripts by default
-    <script>
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.script-section');
-            sections.forEach(section => {
-                section.style.display = 'none';
-            });
-            document.getElementById(sectionId).style.display = 'block';
-        }
-
-        function copyToClipboard(str) {
-            navigator.clipboard.writeText(str).then(function() {
-                alert('Copied to clipboard!');
-            }, function(err) {
-                console.error('Could not copy text: ', err);
-            });
-        }
-
-        function sortScripts(order) {
-            alert(`Sorting scripts by ${order}`);
-        }
-
-        function shareScript(script) {
-            const shareData = {
-                title: 'Script',
-                text: 'Check out this script:',
-                url: window.location.href
-            };
-            navigator.share(shareData).then(() => {
-                console.log('Script shared successfully');
-            }).catch(err => {
-                console.error('Error sharing script:', err);
-            });
-        }
-
-        function toggleReportBox() {
-            const reportBox = document.getElementById('report-box');
-            reportBox.style.display = reportBox.style.display === 'none' || reportBox.style.display === '' ? 'block' : 'none';
-        }
-
-        function submitReport() {
-            const reportText = document.getElementById('report-text').value;
-            alert('Report submitted: ' + reportText);
-        }
-
-        function goToGame(scriptType) {
-            if (scriptType === 'universal') {
-                alert('This script can be used in any games.');
-            } else {
-                alert('Navigating to the specific game...');
-            }
-        }
-
         showSection('all');
     </script>
 </body>
