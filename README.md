@@ -175,7 +175,6 @@
                     <button onclick="goToGame('universal')">Go to Game</button>
                 </div>
             </div>
-        </div>
         <div class="report-box" id="report-box">
             <h2>Report an Issue</h2>
             <textarea id="report-text" placeholder="Describe the issue..."></textarea>
@@ -222,8 +221,12 @@
         function showReportBox(script) {
             const reportBox = document.getElementById('report-box');
             const reportText = document.getElementById('report-text');
-            reportBox.style.display = 'block';
-            reportText.value = script;
+            if (reportBox.style.display === 'none' || reportBox.style.display === '') {
+                reportBox.style.display = 'block';
+                reportText.value = script;
+            } else {
+                reportBox.style.display = 'none';
+            }
         }
 
         function submitReport() {
