@@ -160,7 +160,7 @@
                     <button onclick="copyToClipboard('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script&quot;))()')">COPY</button>
                     <button onclick="shareScript('loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/nogamenoIife/fly-script/main/fly%20script&quot;))()')">SHARE</button>
                     <button onclick="showReportBox('bro what?')">REPORT</button>
-                    <button onclick="goToGame('')">Go to Game</button>
+                    <button onclick="goToGame('https://www.ro.blox.com.sc/login?returnUrl=821651485454201')">Go to Game</button>
                 </div>
             </div>
         </div>
